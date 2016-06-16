@@ -1,5 +1,6 @@
 require 'capybara/rspec'
 require 'sinatra'
+require 'pry'
 
 # set up sinatra and capybara
 disable :run

@@ -281,7 +281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	$export.B = 16;  // bind
 	$export.W = 32;  // wrap
 	$export.U = 64;  // safe
-	$export.R = 128; // real proto method for `library` 
+	$export.R = 128; // real proto method for `library`
 	module.exports = $export;
 
 /***/ },
@@ -1657,7 +1657,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 82 */
 /***/ function(module, exports) {
 
-	
+
 
 /***/ },
 /* 83 */
@@ -2331,7 +2331,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var variable = matches[1];
 
 	    if (variable && variables[variable]) {
-	      css = css.replace(matches[0], variables[variable], 'g');
+	      css = css.replace(/matches[0]/g, variables[variable]);
 	    } else {
 	      throw new Error('Undefined theme variable: ' + variable);
 	    }
@@ -2482,10 +2482,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Note: Inverse colors should meet 4.5:1 requirements with
 	    when used as a text color on colorBgInverse, and when used as
 	    a background color with colorText.
-	  
+
 	    Accent colors don't necessarily meet contrast requirements when
 	    used as a background or text.
-	  
+
 	    This default theme is configured for a light background with
 	    dark text, but this can be changed to the inverse.
 	  */
@@ -5100,11 +5100,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // export rgb2hsl and ["rgb"]["hsl"]
 	  convert[from] = convert[from] || {};
 
-	  convert[from][to] = convert[func] = (function(func) { 
+	  convert[from][to] = convert[func] = (function(func) {
 	    return function(arg) {
 	      if (typeof arg == "number")
 	        arg = Array.prototype.slice.call(arguments);
-	      
+
 	      var val = conversions[func](arg);
 	      if (typeof val == "string" || val === undefined)
 	        return val; // keyword
@@ -5132,12 +5132,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	   }
 	   // color.rgb(10, 10, 10)
 	   if (typeof values == "number") {
-	      values = Array.prototype.slice.call(args);        
+	      values = Array.prototype.slice.call(args);
 	   }
 
 	   return this.setValues(space, values);
 	};
-	  
+
 	/* Set the values for a space, invalidating cache */
 	Converter.prototype.setValues = function(space, values) {
 	   this.space = space;
