@@ -5,12 +5,13 @@ require 'sinatra'
 disable :run
 Sinatra::Application.environment = :test
 Sinatra::Application.root = File.dirname(__FILE__) + "/.."
+
 Capybara.app = Sinatra::Application
 Capybara.default_driver = :selenium
 Capybara.default_selector = :css
+
 # load the actual app.
 require Sinatra::Application.root + "/app"
-
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

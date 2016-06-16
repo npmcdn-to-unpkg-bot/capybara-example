@@ -1,4 +1,4 @@
-require 'capybara/dsl'
+require 'spec_helper'
 
 feature "getting a timestamp" do
   scenario "clicking the button gets a timestamp" do
