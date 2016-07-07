@@ -7,6 +7,7 @@
     <title>Example page</title>
 
     <link rel="stylesheet" href="instructure-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://npmcdn.com/throw-in-the-towel@2" charset="utf-8"></script>
     <script src="https://fb.me/react-15.1.0.js"></script>
     <script src="https://fb.me/react-dom-15.1.0.js"></script>
@@ -43,34 +44,68 @@
         },
         renderDashboard () {
           return (
-            <h2>Welcome {this.state.email}</h2>
+          <div>
+              <h2>Welcome {this.state.email}</h2>
+
+              <table>
+                <caption>User data</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Somebody</td>
+                    <td>Foo</td>
+                    <td>foo@bar.com</td>
+                  </tr>
+                  <tr>
+                    <td>Somebodyelse</td>
+                    <td>Bar</td>
+                    <td>blah@blah.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           );
         },
         renderLoginForm () {
           return (
             <form aria-label="Log In" onSubmit={this.handleSubmit}>
-              <TextInput required label="Email" onChange={this.handleChange} />
-              <TextInput required type="password" label="Password" />
-              <Button type="submit">Log In</Button>
+              <fieldset>
+                <legend>If you're a registered user, log in here</legend>
+                <TextInput required type="email" label="Email" onChange={this.handleChange} />
+                <TextInput required type="password" label="Password" />
+                <Button type="submit">Log In</Button>
+              </fieldset>
             </form>
           );
         },
         render () {
           return (
             <div>
-              <div role="banner">
+              <header role="banner">
                 <h1>Example</h1>
-              </div>
-              <div role="main">
+              </header>
+              <main role="main">
                 {this.state.isLoggedIn ? this.renderDashboard() : this.renderLoginForm()}
-              </div>
-              <div role="navigation">
-                <a href="http://www.instructure.com">Instructure</a>
-                <a href="http://www.github.com">Github</a>
-              </div>
-              <div role="contentinfo">
+              </main>
+              <nav role="navigation">
+                <ul>
+                  <li>
+                    <a href="http://www.instructure.com">Instructure</a>
+                  </li>
+                  <li>
+                    <a href="http://www.github.com">Github</a>
+                  </li>
+                </ul>
+              </nav>
+              <footer role="contentinfo">
                 © 2016
-              </div>
+              </footer>
             </div>
           );
         }
